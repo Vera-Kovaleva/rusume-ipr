@@ -33,4 +33,4 @@ jobs:
           rm -rf .github
           git add pdf/main.pdf
           git commit -am "Automated Publish"
-          git push -f --set-upstream resume-ipr-public main
+          git push -f --set-upstream https://github.com/Vera-Kovaleva/resume-ipr-public.git main

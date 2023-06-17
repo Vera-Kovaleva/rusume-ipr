@@ -25,4 +25,4 @@ jobs:
       with:
         name: my-cv-pdf
         if-no-files-found: error
-        path: .
+        path: cv/main.pdf

@@ -20,4 +20,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: my-cv-pdf
-        path: pdf/main.pdf
+        if-no-files-found: error
+        path: .

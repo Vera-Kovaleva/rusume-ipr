@@ -17,10 +17,10 @@ jobs:
     - name: Build CV
       run: docker buildx build --file Dockerfile --tag my-cv:$(date +%s) --output pdf .
     - name: List Files
-      run: ls -lah
+      run: ls -lah pdf
     - name: Upload PDF
       uses: actions/upload-artifact@v2
       with:
         name: my-cv-pdf
         if-no-files-found: error
-        path: cv/main.pdf
+        path: pdf/main.pdf

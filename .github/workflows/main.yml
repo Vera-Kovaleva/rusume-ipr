@@ -6,7 +6,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: debian:10.3
 
     steps:
 
@@ -22,9 +22,9 @@ jobs:
 
         working_directory: cv/
 
-        args: -jobname=my_doc -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+        args: -interaction=nonstopmode
 
-        compiler: latexmk
+        compiler: pdflatex
 
     - name: Upload pdf document
 

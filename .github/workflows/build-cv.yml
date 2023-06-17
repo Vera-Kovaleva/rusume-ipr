@@ -14,8 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Drop Output Folder
-      run: rm -rf pdf
     - name: Build CV
       run: docker buildx build --file Dockerfile --tag my-cv:$(date +%s) --output pdf .
     - name: List Files
@@ -30,5 +28,7 @@ jobs:
       run: |
           git config --global user.name 'Please Please Moar Smart Names'
           git config --global user.email 'Vera-Kovaleva@users.noreply.github.com'
+          git checkout -b generated
+          git add pdf/main.pdf
           git commit -am "Automated Publish"
           git push

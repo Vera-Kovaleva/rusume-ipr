@@ -16,12 +16,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build CV
       run: docker build --file Dockerfile --tag my-cv:$(date +%s) --output pdf .
-    - name: see list
-      run: ls -lah
-    - name: see list cv
-      run: ls -lah cv
     - name: Upload PDF
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: my-cv-pdf
         if-no-files-found: error

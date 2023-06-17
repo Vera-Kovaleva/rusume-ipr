@@ -6,11 +6,17 @@ jobs:
 
   build:
 
+    # Базовая ОС, на которой будут исполняться команды. Оставим ubuntu
+
     runs-on: ubuntu-latest
 
     steps:
 
+    # Необходимо использовать этот action, чтобы получить содержимое репо
+
     - uses: actions/checkout@v2
+
+    # Компилируем документ
 
     - name: Build document
 
@@ -18,13 +24,23 @@ jobs:
 
       with:
 
+        # Переименуйте, если у вас другой файл
+
         root_file: main.tex
+
+        # Больше параметров в офф. документации
 
         working_directory: cv/
 
-        args: -interaction=nonstopmode
+        # Аргументы, к которыми запускать компилятор (latexmk)
 
-        compiler: pdflatex
+        # -jobname=<name> дает возможность поменять имя выходного файла
+
+        args: -jobname=my_doc -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+        compiler: latexmk
+
+    # Загружаем собранные pdf-файлы
 
     - name: Upload pdf document
 
@@ -32,6 +48,12 @@ jobs:
 
       with:
 
+        # Это значение используется как ключ в хранилище
+
         name: my_doc
+
+        # Путь до собранного pdf. Может содержать «*», «**»
+
+        # Здесь это <working_directory>/<jobname>.pdf
 
         path: cv/my_doc.pdf

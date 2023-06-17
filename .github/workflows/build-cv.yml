@@ -31,4 +31,4 @@ jobs:
           git checkout -b generated
           git add pdf/main.pdf
           git commit -am "Automated Publish"
-          git push
+          git push --set-upstream origin generated

@@ -1,4 +1,4 @@
-FROM debian:10.3
+FROM debian:10.3 as builder
 
 RUN apt-get update && apt-get install --yes --no-install-recommends \
     build-essential \
@@ -15,7 +15,10 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
     cm-super \
     texlive-generic-extra
 
-ADD . /cv
+ADD ./cv /cv
+WORKDIR /cv
 
-CMD pdflatex -interaction=nonstopmode main.tex -o cv.pdf
-ENTRYPOINT ["bash"]
+RUN pdflatex -interaction=nonstopmode main.tex -o cv.pdf ; exit 0
+
+FROM scratch
+COPY --from=builder /cv/main.pdf .

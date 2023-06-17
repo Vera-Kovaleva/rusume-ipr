@@ -36,7 +36,7 @@ jobs:
 
         # -jobname=<name> дает возможность поменять имя выходного файла
 
-        args: -jobname=my_doc -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+        args: -jobname=main -pdf -file-line-error -halt-on-error -interaction=nonstopmode
 
         compiler: latexmk
 
@@ -50,10 +50,10 @@ jobs:
 
         # Это значение используется как ключ в хранилище
 
-        name: my_doc
+        name: main
 
         # Путь до собранного pdf. Может содержать «*», «**»
 
         # Здесь это <working_directory>/<jobname>.pdf
 
-        path: cv/my_doc.pdf
+        path: cv/main.pdf

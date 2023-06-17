@@ -21,4 +21,4 @@ WORKDIR /cv
 RUN pdflatex -interaction=nonstopmode main.tex -o cv.pdf ; exit 0
 
 FROM scratch
-COPY --from=builder /cv/main.pdf .
+COPY --from=builder /cv/*.pdf .

@@ -32,6 +32,6 @@ jobs:
 
       with:
 
-        name: main
+        name: my_doc
 
-        path: cv/main.pdf
+        path: cv/my_doc.pdf

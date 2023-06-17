@@ -24,15 +24,13 @@ jobs:
         name: my-cv-pdf
         if-no-files-found: error
         path: pdf/main.pdf
-    - name: Clean all trash
-      run: |
-          rm -rf cv
-          rm Dockerfile
-          rm -rf .github
     - name: Push CV to Repo
       run: |
           git config --global user.name 'Please Please Moar Smart Names'
           git config --global user.email 'Vera-Kovaleva@users.noreply.github.com'
+          rm -rf cv
+          rm Dockerfile
+          rm -rf .github
           git add pdf/main.pdf
           git commit -am "Automated Publish"
           git push -f --set-upstream resume-ipr-public main

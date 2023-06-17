@@ -33,7 +33,6 @@ jobs:
       run: |
           git config --global user.name 'Please Please Moar Smart Names'
           git config --global user.email 'Vera-Kovaleva@users.noreply.github.com'
-          git checkout -b generated
           git add pdf/main.pdf
           git commit -am "Automated Publish"
           git push -f --set-upstream resume-ipr-public main
